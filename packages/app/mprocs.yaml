@@ -1,4 +1,6 @@
 scrollback: 10000
 procs:
   app:
-    shell: pnpm vite --port 3000
+    shell: pnpm vite --port 3001
+  cloudflared:
+    shell: cloudflared tunnel run

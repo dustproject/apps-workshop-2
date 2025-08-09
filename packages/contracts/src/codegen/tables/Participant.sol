@@ -22,8 +22,8 @@ struct ParticipantData {
 }
 
 library Participant {
-  // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "workshop_1", name: "Participant", typeId: RESOURCE_TABLE });`
-  ResourceId constant _tableId = ResourceId.wrap(0x7462776f726b73686f705f31000000005061727469636970616e740000000000);
+  // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "workshop_2", name: "Participant", typeId: RESOURCE_TABLE });`
+  ResourceId constant _tableId = ResourceId.wrap(0x7462776f726b73686f705f32000000005061727469636970616e740000000000);
 
   FieldLayout constant _fieldLayout =
     FieldLayout.wrap(0x0021020020010000000000000000000000000000000000000000000000000000);

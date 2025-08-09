@@ -2,4 +2,4 @@ scrollback: 10000
 procs:
   app:
     cwd: packages/app
-    shell: pnpm run dev
+    shell: pnpm run dev --port 3001

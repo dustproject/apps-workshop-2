@@ -16,9 +16,9 @@ import { StoreSwitch } from "@latticexyz/store/src/StoreSwitch.sol";
 
 type ChestProgramType is bytes32;
 
-// equivalent to WorldResourceIdLib.encode({ typeId: RESOURCE_SYSTEM, namespace: "workshop_1", name: "ChestProgram" }))
+// equivalent to WorldResourceIdLib.encode({ typeId: RESOURCE_SYSTEM, namespace: "workshop_2", name: "ChestProgram" }))
 ChestProgramType constant chestProgram = ChestProgramType.wrap(
-  0x7379776f726b73686f705f3100000000436865737450726f6772616d00000000
+  0x7379776f726b73686f705f3200000000436865737450726f6772616d00000000
 );
 
 struct CallWrapper {

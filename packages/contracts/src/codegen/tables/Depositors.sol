@@ -17,8 +17,8 @@ import { EncodedLengths, EncodedLengthsLib } from "@latticexyz/store/src/Encoded
 import { ResourceId } from "@latticexyz/store/src/ResourceId.sol";
 
 library Depositors {
-  // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "workshop_1", name: "Depositors", typeId: RESOURCE_TABLE });`
-  ResourceId constant _tableId = ResourceId.wrap(0x7462776f726b73686f705f31000000004465706f7369746f7273000000000000);
+  // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "workshop_2", name: "Depositors", typeId: RESOURCE_TABLE });`
+  ResourceId constant _tableId = ResourceId.wrap(0x7462776f726b73686f705f32000000004465706f7369746f7273000000000000);
 
   FieldLayout constant _fieldLayout =
     FieldLayout.wrap(0x0000000100000000000000000000000000000000000000000000000000000000);
