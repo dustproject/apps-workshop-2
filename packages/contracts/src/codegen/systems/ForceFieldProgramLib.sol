@@ -50,8 +50,12 @@ library ForceFieldProgramLib {
     return CallWrapper(self.toResourceId(), address(0)).onMine(ctx, mine);
   }
 
-  function onBuild(ForceFieldProgramType self, HookContext memory ctx, IBuild.BuildData memory build) internal view {
-    return CallWrapper(self.toResourceId(), address(0)).onBuild(ctx, build);
+  function onBuild(
+    ForceFieldProgramType self,
+    HookContext memory ctx,
+    IBuild.BuildData memory __auxArg0
+  ) internal view {
+    return CallWrapper(self.toResourceId(), address(0)).onBuild(ctx, __auxArg0);
   }
 
   function _msgSender(ForceFieldProgramType self) internal view returns (address __auxRet0) {
@@ -98,11 +102,11 @@ library ForceFieldProgramLib {
     abi.decode(returnData, (bytes));
   }
 
-  function onBuild(CallWrapper memory self, HookContext memory ctx, IBuild.BuildData memory build) internal view {
+  function onBuild(CallWrapper memory self, HookContext memory ctx, IBuild.BuildData memory __auxArg0) internal view {
     // if the contract calling this function is a root system, it should use `callAsRoot`
     if (address(_world()) == address(this)) revert ForceFieldProgramLib_CallingFromRootSystem();
 
-    bytes memory systemCall = abi.encodeCall(_onBuild_HookContext_IBuild_BuildData.onBuild, (ctx, build));
+    bytes memory systemCall = abi.encodeCall(_onBuild_HookContext_IBuild_BuildData.onBuild, (ctx, __auxArg0));
     bytes memory worldCall = self.from == address(0)
       ? abi.encodeCall(IWorldCall.call, (self.systemId, systemCall))
       : abi.encodeCall(IWorldCall.callFrom, (self.from, self.systemId, systemCall));
@@ -162,8 +166,12 @@ library ForceFieldProgramLib {
     SystemCall.staticcallOrRevert(self.from, self.systemId, systemCall);
   }
 
-  function onBuild(RootCallWrapper memory self, HookContext memory ctx, IBuild.BuildData memory build) internal view {
-    bytes memory systemCall = abi.encodeCall(_onBuild_HookContext_IBuild_BuildData.onBuild, (ctx, build));
+  function onBuild(
+    RootCallWrapper memory self,
+    HookContext memory ctx,
+    IBuild.BuildData memory __auxArg0
+  ) internal view {
+    bytes memory systemCall = abi.encodeCall(_onBuild_HookContext_IBuild_BuildData.onBuild, (ctx, __auxArg0));
     SystemCall.staticcallOrRevert(self.from, self.systemId, systemCall);
   }
 
@@ -238,7 +246,7 @@ interface _onMine_HookContext_IMine_MineData {
 }
 
 interface _onBuild_HookContext_IBuild_BuildData {
-  function onBuild(HookContext memory ctx, IBuild.BuildData memory build) external;
+  function onBuild(HookContext memory ctx, IBuild.BuildData memory __auxArg0) external;
 }
 
 interface __msgSender {

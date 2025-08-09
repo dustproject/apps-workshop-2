@@ -37,5 +37,20 @@ export default defineWorld({
       },
     },
   },
-  tables: {},
+  tables: {
+    Participant: {
+      schema: {
+        player: "address",
+        deathCount: "uint256",
+        isSet: "bool",
+      },
+      key: ["player"],
+    },
+    Depositors: {
+      schema: {
+        depositors: "address[]",
+      },
+      key: [],
+    },
+  },
 });

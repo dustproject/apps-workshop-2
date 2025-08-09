@@ -3,13 +3,13 @@ import { useSyncStatus } from "./mud/useSyncStatus";
 import { usePlayerPositionQuery } from "./common/usePlayerPositionQuery";
 import { AccountName } from "./common/AccountName";
 import { useDustClient } from "./common/useDustClient";
-import { stash, tables } from "./mud/stash";
-import { useRecord } from "@latticexyz/stash/react";
+// import { stash, tables } from "./mud/stash";
+// import { useRecord } from "@latticexyz/stash/react";
 import { useMutation } from "@tanstack/react-query";
-import { resourceToHex } from "@latticexyz/common";
+// import { resourceToHex } from "@latticexyz/common";
 // import IWorldAbi from "dustkit/out/IWorld.sol/IWorld.abi";
-import mudConfig from "contracts/mud.config";
-import CounterAbi from "contracts/out/CounterSystem.sol/CounterSystem.abi.json";
+// import mudConfig from "contracts/mud.config";
+// import CounterAbi from "contracts/out/CounterSystem.sol/CounterSystem.abi.json";
 
 export default function App() {
   const { data: dustClient } = useDustClient();
@@ -17,30 +17,32 @@ export default function App() {
   const playerStatus = usePlayerStatus();
   const playerPosition = usePlayerPositionQuery();
 
-  const counter = useRecord({
-    stash,
-    table: tables.Counter,
-    key: {},
-  });
+  // const counter = useRecord({
+  //   stash,
+  //   table: tables.Counter,
+  //   key: {},
+  // });
 
   const increment = useMutation({
     mutationFn: () => {
       if (!dustClient) throw new Error("Dust client not connected");
-      return dustClient.provider.request({
-        method: "systemCall",
-        params: [
-          {
-            systemId: resourceToHex({
-              type: "system",
-              namespace: mudConfig.namespace,
-              name: "CounterSystem",
-            }),
-            abi: CounterAbi,
-            functionName: "increment",
-            args: [],
-          },
-        ],
-      });
+
+      return Promise.resolve();
+      // return dustClient.provider.request({
+      //   method: "systemCall",
+      //   params: [
+      //     {
+      //       systemId: resourceToHex({
+      //         type: "system",
+      //         namespace: mudConfig.namespace,
+      //         name: "CounterSystem",
+      //       }),
+      //       abi: CounterAbi,
+      //       functionName: "increment",
+      //       args: [],
+      //     },
+      //   ],
+      // });
     },
   });
 
@@ -49,7 +51,7 @@ export default function App() {
     return (
       <div className="flex flex-col h-screen items-center justify-center">
         <a href={url} className="text-center text-blue-500 underline">
-          Open this page in DUST to connect to dustkit
+          Open this page in DUST to connect to DustKit
         </a>
       </div>
     );
@@ -71,7 +73,7 @@ export default function App() {
       {playerPosition.data && (
         <p>Your position: {JSON.stringify(playerPosition.data, null, " ")}</p>
       )}
-      <p>Counter: {counter?.value.toString() ?? "unset"}</p>
+      {/* <p>Counter: {counter?.value.toString() ?? "unset"}</p> */}
       <button
         onClick={() => increment.mutate()}
         disabled={increment.isPending}

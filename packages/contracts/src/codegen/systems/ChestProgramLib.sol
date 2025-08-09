@@ -46,11 +46,7 @@ library ChestProgramLib {
     return CallWrapper(self.toResourceId(), address(0)).onDetachProgram(ctx);
   }
 
-  function onTransfer(
-    ChestProgramType self,
-    HookContext memory ctx,
-    ITransfer.TransferData memory transfer
-  ) internal view {
+  function onTransfer(ChestProgramType self, HookContext memory ctx, ITransfer.TransferData memory transfer) internal {
     return CallWrapper(self.toResourceId(), address(0)).onTransfer(ctx, transfer);
   }
 
@@ -89,7 +85,7 @@ library ChestProgramLib {
     CallWrapper memory self,
     HookContext memory ctx,
     ITransfer.TransferData memory transfer
-  ) internal view {
+  ) internal {
     // if the contract calling this function is a root system, it should use `callAsRoot`
     if (address(_world()) == address(this)) revert ChestProgramLib_CallingFromRootSystem();
 
@@ -97,12 +93,9 @@ library ChestProgramLib {
       _onTransfer_HookContext_ITransfer_TransferData.onTransfer,
       (ctx, transfer)
     );
-    bytes memory worldCall = self.from == address(0)
-      ? abi.encodeCall(IWorldCall.call, (self.systemId, systemCall))
-      : abi.encodeCall(IWorldCall.callFrom, (self.from, self.systemId, systemCall));
-    (bool success, bytes memory returnData) = address(_world()).staticcall(worldCall);
-    if (!success) revertWithBytes(returnData);
-    abi.decode(returnData, (bytes));
+    self.from == address(0)
+      ? _world().call(self.systemId, systemCall)
+      : _world().callFrom(self.from, self.systemId, systemCall);
   }
 
   function _msgSender(CallWrapper memory self) internal view returns (address __auxRet0) {
@@ -155,12 +148,12 @@ library ChestProgramLib {
     RootCallWrapper memory self,
     HookContext memory ctx,
     ITransfer.TransferData memory transfer
-  ) internal view {
+  ) internal {
     bytes memory systemCall = abi.encodeCall(
       _onTransfer_HookContext_ITransfer_TransferData.onTransfer,
       (ctx, transfer)
     );
-    SystemCall.staticcallOrRevert(self.from, self.systemId, systemCall);
+    SystemCall.callWithHooksOrRevert(self.from, self.systemId, systemCall, msg.value);
   }
 
   function _msgSender(RootCallWrapper memory self) internal view returns (address __auxRet0) {

@@ -1,5 +1,5 @@
 {
-  "name": "contracts",
+  "name": "programs-workshop",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
@@ -9,6 +9,7 @@
     "deploy:local": ". ./set-env.sh local && mud deploy --alwaysRunPostDeploy --profile=$FOUNDRY_PROFILE --worldAddress=$WORLD_ADDRESS",
     "deploy:redstone": ". ./set-env.sh redstone && mud deploy --alwaysRunPostDeploy --profile=$FOUNDRY_PROFILE --worldAddress=$WORLD_ADDRESS",
     "update-program:redstone": ". ./set-env.sh redstone && forge script UpdateProgram --sig='run(bytes32,bytes32,bytes)'",
+    "reset-game:redstone": ". ./set-env.sh redstone && forge script ResetGame",
     "foundry:up": "curl -L https://foundry.paradigm.xyz | bash && bash $HOME/.foundry/bin/foundryup",
     "lint": "pnpm run prettier && pnpm run solhint",
     "prettier": "prettier --write 'src/**/*.sol'",
