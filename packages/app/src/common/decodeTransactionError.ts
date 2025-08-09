@@ -2,6 +2,7 @@ import { type Abi, decodeErrorResult, parseEventLogs } from "viem";
 import { entryPoint07Abi } from "viem/account-abstraction";
 
 export function decodeTransactionError(abi: Abi, response: unknown) {
+  // @ts-expect-error - figure out type
   const receipt = response.receipt;
   const encodedReason = parseEventLogs({
     logs: receipt.receipt.logs,
