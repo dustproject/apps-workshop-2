@@ -4,15 +4,14 @@ import { usePlayerPositionQuery } from "./common/usePlayerPositionQuery";
 import { AccountName } from "./common/AccountName";
 import { useDustClient } from "./common/useDustClient";
 import IWorldAbi from "@dust/world/out/IWorld.sol/IWorld.abi";
-// import { stash, tables } from "./mud/stash";
-// import { useRecord } from "@latticexyz/stash/react";
+import { stash, tables } from "./mud/stash";
+import { useRecord } from "@latticexyz/stash/react";
 import { useMutation } from "@tanstack/react-query";
 import { encodePlayer } from "@dust/world/internal";
 import { decodeTransactionError } from "./common/decodeTransactionError";
-// import { resourceToHex } from "@latticexyz/common";
-// import IWorldAbi from "dustkit/out/IWorld.sol/IWorld.abi";
-// import mudConfig from "contracts/mud.config";
-// import CounterAbi from "contracts/out/CounterSystem.sol/CounterSystem.abi.json";
+import { resourceToHex } from "@latticexyz/common";
+import mudConfig from "contracts/mud.config";
+import ChestProgramAbi from "contracts/out/ChestProgram.sol/ChestProgram.abi.json";
 
 const CHEST_ENTITY_ID =
   "0x030000025a00000093fffffab700000000000000000000000000000000000000";
@@ -27,6 +26,14 @@ export default function App() {
   const userAddress = dustClient?.appContext.userAddress;
   const chestEntityId = dustClient?.appContext.via?.entity;
   const userEntityId = userAddress ? encodePlayer(userAddress) : null;
+
+  const depositors = useRecord({
+    stash,
+    table: tables.Depositors,
+    key: [],
+  });
+
+  console.log("depositors:", depositors);
 
   const syncStatus = useSyncStatus();
   const playerStatus = usePlayerStatus();
@@ -124,6 +131,19 @@ export default function App() {
             (602, 148, -1353)
           </span>{" "}
           to play the spleef game!
+        </p>
+      )}
+
+      {depositors?.depositors && depositors.depositors.length > 0 && (
+        <p>
+          Depositors:{" "}
+          <ul>
+            {depositors.depositors.map((depositor) => (
+              <li key={depositor}>
+                <AccountName address={depositor} />
+              </li>
+            ))}
+          </ul>
         </p>
       )}
 
