@@ -29,7 +29,7 @@ export default function App() {
   const playerStatus = usePlayerStatus();
   const playerPosition = usePlayerPositionQuery();
 
-  const isDesktopApp = !dustClient?.appContext.via;
+  // const isDesktopApp = !dustClient?.appContext.via;
   const isChestApp = !!dustClient?.appContext.via;
 
   console.log("dustClient:", dustClient);
