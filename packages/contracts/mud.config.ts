@@ -22,7 +22,7 @@ export default defineWorld({
       type: "bytes32",
     },
   },
-  namespace: "workshop_1",
+  namespace: "workshop_2",
   systems: {
     ChestProgram: {
       openAccess: false,

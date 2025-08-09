@@ -10,13 +10,26 @@ import { HookContext, IAttachProgram, IDetachProgram, ITransfer } from "@dust/wo
 import { Death } from "@dust/world/src/codegen/tables/Death.sol";
 import { EntityTypeLib } from "@dust/world/src/types/EntityId.sol";
 import { ObjectTypes } from "@dust/world/src/types/ObjectType.sol";
+import { IAppConfigURI } from "@dust/dustkit/contracts/IAppConfigURI.sol";
+import { EntityId } from "@dust/world/src/types/EntityId.sol";
 
 import { Constants } from "./Constants.sol";
 
 import { Depositors } from "./codegen/tables/Depositors.sol";
 import { Participant, ParticipantData } from "./codegen/tables/Participant.sol";
 
-contract ChestProgram is ITransfer, IAttachProgram, IDetachProgram, System, WorldConsumer(Constants.DUST_WORLD) {
+contract ChestProgram is
+  ITransfer,
+  IAppConfigURI,
+  IAttachProgram,
+  IDetachProgram,
+  System,
+  WorldConsumer(Constants.DUST_WORLD)
+{
+  function appConfigURI(EntityId) external pure returns (string memory) {
+    return "https://apps-workshop-2-app.vercel.app/dust-app.json";
+  }
+
   function onAttachProgram(HookContext calldata ctx) public onlyWorld {}
 
   function onDetachProgram(HookContext calldata ctx) public view onlyWorld {

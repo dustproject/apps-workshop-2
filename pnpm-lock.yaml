@@ -102,6 +102,9 @@ importers:
 
   packages/contracts:
     dependencies:
+      '@dust/dustkit':
+        specifier: https://pkg.pr.new/dustproject/dust/dustkit@51a36a7
+        version: dustkit@https://pkg.pr.new/dustproject/dust/dustkit@51a36a7(@aws-sdk/client-kms@3.848.0)(@cloudflare/workers-types@4.20250725.0)(@tanstack/react-query@5.83.0(react@19.1.0))(@types/react@18.3.23)(asn1.js@5.4.1)(bufferutil@4.0.9)(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(wagmi@2.16.0(@tanstack/query-core@5.83.0)(@tanstack/react-query@5.83.0(react@19.1.0))(@types/react@18.3.23)(bufferutil@4.0.9)(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8))(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@3.23.8)
       '@dust/programs':
         specifier: https://pkg.pr.new/dustproject/dust/@dust/programs@ec20311
         version: https://pkg.pr.new/dustproject/dust/@dust/programs@ec20311(@aws-sdk/client-kms@3.848.0)(@cloudflare/workers-types@4.20250725.0)(@tanstack/react-query@5.83.0(react@19.1.0))(@types/react@18.3.23)(asn1.js@5.4.1)(bufferutil@4.0.9)(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(wagmi@2.16.0(@tanstack/query-core@5.83.0)(@tanstack/react-query@5.83.0(react@19.1.0))(@types/react@18.3.23)(bufferutil@4.0.9)(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8))(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@3.23.8)
@@ -441,6 +444,10 @@ packages:
 
   '@dust/world@https://pkg.pr.new/dustproject/dust/@dust/world@2b5a710':
     resolution: {tarball: https://pkg.pr.new/dustproject/dust/@dust/world@2b5a710}
+    version: 0.0.0
+
+  '@dust/world@https://pkg.pr.new/dustproject/dust/@dust/world@51a36a7c5161225e4be30a3e98f6754a6b5c58be':
+    resolution: {tarball: https://pkg.pr.new/dustproject/dust/@dust/world@51a36a7c5161225e4be30a3e98f6754a6b5c58be}
     version: 0.0.0
 
   '@dust/world@https://pkg.pr.new/dustproject/dust/@dust/world@ec20311':
@@ -2784,6 +2791,12 @@ packages:
 
   dustkit@https://pkg.pr.new/dustproject/dust/dustkit@27f724c:
     resolution: {tarball: https://pkg.pr.new/dustproject/dust/dustkit@27f724c}
+    version: 0.0.0
+    peerDependencies:
+      viem: 2.x
+
+  dustkit@https://pkg.pr.new/dustproject/dust/dustkit@51a36a7:
+    resolution: {tarball: https://pkg.pr.new/dustproject/dust/dustkit@51a36a7}
     version: 0.0.0
     peerDependencies:
       viem: 2.x
@@ -5549,6 +5562,26 @@ snapshots:
       - zod
 
   '@dust/world@https://pkg.pr.new/dustproject/dust/@dust/world@2b5a710(@aws-sdk/client-kms@3.848.0)(asn1.js@5.4.1)(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8)':
+    dependencies:
+      '@latticexyz/common': 2.2.23-94cac741be24bb5743f2f36235cc3bb40012417a(@aws-sdk/client-kms@3.848.0)(asn1.js@5.4.1)(typescript@5.8.3)(viem@2.30.6(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8)
+      '@latticexyz/config': 2.2.23-94cac741be24bb5743f2f36235cc3bb40012417a(@aws-sdk/client-kms@3.848.0)(asn1.js@5.4.1)(typescript@5.8.3)(viem@2.30.6(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8)
+      '@latticexyz/schema-type': 2.2.23-94cac741be24bb5743f2f36235cc3bb40012417a(typescript@5.8.3)(viem@2.30.6(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8)
+      '@latticexyz/store': 2.2.23-94cac741be24bb5743f2f36235cc3bb40012417a(@aws-sdk/client-kms@3.848.0)(asn1.js@5.4.1)(typescript@5.8.3)(viem@2.30.6(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8)
+      '@latticexyz/world': 2.2.23-94cac741be24bb5743f2f36235cc3bb40012417a(@aws-sdk/client-kms@3.848.0)(asn1.js@5.4.1)(typescript@5.8.3)(viem@2.30.6(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8)
+      '@latticexyz/world-consumer': 2.2.23-94cac741be24bb5743f2f36235cc3bb40012417a(@aws-sdk/client-kms@3.848.0)(asn1.js@5.4.1)(typescript@5.8.3)(viem@2.30.6(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8)
+      '@openzeppelin/contracts': 4.9.6
+      solady: 0.1.24
+      viem: 2.30.6(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8)
+    transitivePeerDependencies:
+      - '@aws-sdk/client-kms'
+      - asn1.js
+      - bufferutil
+      - supports-color
+      - typescript
+      - utf-8-validate
+      - zod
+
+  '@dust/world@https://pkg.pr.new/dustproject/dust/@dust/world@51a36a7c5161225e4be30a3e98f6754a6b5c58be(@aws-sdk/client-kms@3.848.0)(asn1.js@5.4.1)(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8)':
     dependencies:
       '@latticexyz/common': 2.2.23-94cac741be24bb5743f2f36235cc3bb40012417a(@aws-sdk/client-kms@3.848.0)(asn1.js@5.4.1)(typescript@5.8.3)(viem@2.30.6(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8)
       '@latticexyz/config': 2.2.23-94cac741be24bb5743f2f36235cc3bb40012417a(@aws-sdk/client-kms@3.848.0)(asn1.js@5.4.1)(typescript@5.8.3)(viem@2.30.6(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8)
@@ -10559,6 +10592,53 @@ snapshots:
       - typescript
       - utf-8-validate
       - wagmi
+      - zod
+
+  dustkit@https://pkg.pr.new/dustproject/dust/dustkit@51a36a7(@aws-sdk/client-kms@3.848.0)(@cloudflare/workers-types@4.20250725.0)(@tanstack/react-query@5.83.0(react@19.1.0))(@types/react@18.3.23)(asn1.js@5.4.1)(bufferutil@4.0.9)(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(wagmi@2.16.0(@tanstack/query-core@5.83.0)(@tanstack/react-query@5.83.0(react@19.1.0))(@types/react@18.3.23)(bufferutil@4.0.9)(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8))(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@3.23.8):
+    dependencies:
+      '@dust/world': https://pkg.pr.new/dustproject/dust/@dust/world@51a36a7c5161225e4be30a3e98f6754a6b5c58be(@aws-sdk/client-kms@3.848.0)(asn1.js@5.4.1)(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8)
+      '@latticexyz/abi-ts': 2.2.23-94cac741be24bb5743f2f36235cc3bb40012417a
+      '@latticexyz/cli': 2.2.23-94cac741be24bb5743f2f36235cc3bb40012417a(@cloudflare/workers-types@4.20250725.0)(@tanstack/react-query@5.83.0(react@19.1.0))(@types/react@18.3.23)(bufferutil@4.0.9)(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)(wagmi@2.16.0(@tanstack/query-core@5.83.0)(@tanstack/react-query@5.83.0(react@19.1.0))(@types/react@18.3.23)(bufferutil@4.0.9)(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8))(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@latticexyz/common': 2.2.23-94cac741be24bb5743f2f36235cc3bb40012417a(@aws-sdk/client-kms@3.848.0)(asn1.js@5.4.1)(typescript@5.8.3)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8)
+      '@latticexyz/schema-type': 2.2.23-94cac741be24bb5743f2f36235cc3bb40012417a(typescript@5.8.3)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8)
+      '@latticexyz/store': 2.2.23-94cac741be24bb5743f2f36235cc3bb40012417a(@aws-sdk/client-kms@3.848.0)(asn1.js@5.4.1)(typescript@5.8.3)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8)
+      '@latticexyz/world': 2.2.23-94cac741be24bb5743f2f36235cc3bb40012417a(@aws-sdk/client-kms@3.848.0)(asn1.js@5.4.1)(typescript@5.8.3)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8)
+      '@latticexyz/world-module-metadata': 2.2.23-94cac741be24bb5743f2f36235cc3bb40012417a(@aws-sdk/client-kms@3.848.0)(asn1.js@5.4.1)(typescript@5.8.3)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8)
+      arktype: 2.1.20
+      debug: 4.4.1(supports-color@5.5.0)
+      ox: 0.6.12(typescript@5.8.3)(zod@3.23.8)
+      p-retry: 6.2.1
+      viem: 2.33.0(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8)
+    transitivePeerDependencies:
+      - '@aws-sdk/client-kms'
+      - '@aws-sdk/client-rds-data'
+      - '@cloudflare/workers-types'
+      - '@libsql/client'
+      - '@neondatabase/serverless'
+      - '@opentelemetry/api'
+      - '@planetscale/database'
+      - '@tanstack/react-query'
+      - '@types/better-sqlite3'
+      - '@types/pg'
+      - '@types/react'
+      - '@types/sql.js'
+      - '@vercel/postgres'
+      - asn1.js
+      - aws-crt
+      - better-sqlite3
+      - bufferutil
+      - bun-types
+      - immer
+      - knex
+      - mysql2
+      - pg
+      - react
+      - sqlite3
+      - supports-color
+      - typescript
+      - utf-8-validate
+      - wagmi
+      - ws
       - zod
 
   dustkit@https://pkg.pr.new/dustproject/dust/dustkit@ec20311f25e3490543fa008e960f285d921f69c8(@aws-sdk/client-kms@3.848.0)(@cloudflare/workers-types@4.20250725.0)(@tanstack/react-query@5.83.0(react@19.1.0))(@types/react@18.3.23)(asn1.js@5.4.1)(bufferutil@4.0.9)(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(wagmi@2.16.0(@tanstack/query-core@5.83.0)(@tanstack/react-query@5.83.0(react@19.1.0))(@types/react@18.3.23)(bufferutil@4.0.9)(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8))(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@3.23.8):

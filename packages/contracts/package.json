@@ -1,5 +1,5 @@
 {
-  "name": "programs-workshop",
+  "name": "contracts",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
@@ -17,6 +17,7 @@
     "test": "mud test"
   },
   "dependencies": {
+    "@dust/dustkit": "https://pkg.pr.new/dustproject/dust/dustkit@51a36a7",
     "@dust/programs": "https://pkg.pr.new/dustproject/dust/@dust/programs@ec20311",
     "@dust/world": "https://pkg.pr.new/dustproject/dust/@dust/world@ec20311",
     "@latticexyz/cli": "2.2.23-94cac741be24bb5743f2f36235cc3bb40012417a",
