@@ -14,6 +14,9 @@ import { decodeTransactionError } from "./common/decodeTransactionError";
 // import mudConfig from "contracts/mud.config";
 // import CounterAbi from "contracts/out/CounterSystem.sol/CounterSystem.abi.json";
 
+const CHEST_ENTITY_ID =
+  "0x030000025a00000093fffffab700000000000000000000000000000000000000";
+
 const TRANSFER_SYSTEM_ID =
   "0x737900000000000000000000000000005472616e7366657253797374656d0000";
 
@@ -29,20 +32,13 @@ export default function App() {
   const playerStatus = usePlayerStatus();
   const playerPosition = usePlayerPositionQuery();
 
-  // const isDesktopApp = !dustClient?.appContext.via;
+  const isDesktopApp = !dustClient?.appContext.via;
   const isChestApp = !!dustClient?.appContext.via;
-
-  console.log("dustClient:", dustClient);
-
-  // const isDesktopApp =
 
   const joinGame = useMutation({
     mutationFn: async () => {
       if (!dustClient) throw new Error("Dust client not connected");
-
-      if (!userEntityId) {
-        throw new Error("User not found");
-      }
+      if (!userEntityId) throw new Error("User not found");
 
       const userSlots = await dustClient.provider.request({
         method: "getSlots",
@@ -106,6 +102,29 @@ export default function App() {
       </p>
       {playerPosition.data && (
         <p>Your position: {JSON.stringify(playerPosition.data, null, " ")}</p>
+      )}
+
+      {isDesktopApp && (
+        <p>
+          Come to{" "}
+          <span
+            className="cursor-pointer text-blue-500 underline"
+            onClick={async () => {
+              if (!dustClient) throw new Error("Dust client not connected");
+
+              await dustClient.provider.request({
+                method: "setWaypoint",
+                params: {
+                  entity: CHEST_ENTITY_ID,
+                  label: "Spleef Game",
+                },
+              });
+            }}
+          >
+            (602, 148, -1353)
+          </span>{" "}
+          to play the spleef game!
+        </p>
       )}
 
       {isChestApp && (
