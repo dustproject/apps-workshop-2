@@ -9,9 +9,6 @@ import { useRecord } from "@latticexyz/stash/react";
 import { useMutation } from "@tanstack/react-query";
 import { encodePlayer } from "@dust/world/internal";
 import { decodeTransactionError } from "./common/decodeTransactionError";
-import { resourceToHex } from "@latticexyz/common";
-import mudConfig from "contracts/mud.config";
-import ChestProgramAbi from "contracts/out/ChestProgram.sol/ChestProgram.abi.json";
 
 const CHEST_ENTITY_ID =
   "0x030000025a00000093fffffab700000000000000000000000000000000000000";
@@ -32,8 +29,6 @@ export default function App() {
     table: tables.Depositors,
     key: [],
   });
-
-  console.log("depositors:", depositors);
 
   const syncStatus = useSyncStatus();
   const playerStatus = usePlayerStatus();
@@ -134,7 +129,7 @@ export default function App() {
         </p>
       )}
 
-      {depositors?.depositors && depositors.depositors.length > 0 && (
+      {depositors?.depositors && depositors.depositors.length > 0 ? (
         <p>
           Depositors:{" "}
           <ul>
@@ -145,6 +140,8 @@ export default function App() {
             ))}
           </ul>
         </p>
+      ) : (
+        <p>No depositors yet</p>
       )}
 
       {isChestApp && (
